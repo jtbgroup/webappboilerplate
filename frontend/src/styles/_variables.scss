@@ -1,33 +1,49 @@
-// ─── Colors ───────────────────────────────────────────────────────────────────
+// ─── Colors — Brand ───────────────────────────────────────────────────────────
 
-$color-primary: #007bff;
-$color-primary-dark: #0056b3;
-$color-secondary: #6c757d;
+$color-primary:      #3949ab;
+$color-primary-dark: #1a237e;
+
+// Couleurs "indigo/material" utilisées dans header, user-list, badges
+$color-brand-deep:   #1a237e;   // titres, header gradient start, badges
+$color-brand-mid:    #283593;   // header gradient mid, hover boutons
+$color-brand-light:  #3949ab;   // header gradient end, btn-save
+$color-brand-accent: #90caf9;   // title-accent header
+$color-brand-bg:     #e8eaf6;   // fond header row, role-chip bg, badge bg
+$color-brand-hover:  #f5f6ff;   // hover row table
+
+$color-secondary:      #6c757d;
 $color-secondary-dark: #5a6268;
-$color-danger: #dc3545;
-$color-danger-dark: #c82333;
-$color-success: #28a745;
 
-$color-text: #333;
+$color-danger:      #dc3545;
+$color-danger-dark: #c82333;
+$color-danger-text: #c62828;    // erreurs formulaires, logout
+
+$color-success:      #28a745;
+$color-success-bg:   #e8f5e9;
+$color-success-text: #2e7d32;
+
+$color-warning-bg:   #fce4ec;
+$color-warning-text: #b71c1c;
+
+// ─── Colors — Neutrals ────────────────────────────────────────────────────────
+
+$color-text:       #1a1a2e;
+$color-text-alt:   #333;
 $color-text-muted: #6c757d;
 $color-text-light: #aaa;
 
-$color-border: #dee2e6;
+$color-border:       #dee2e6;
 $color-border-light: #e9ecef;
-$color-bg: #f5f7fa;
+
+$color-bg:       #f0f2f8;   // body background
+$color-bg-alt:   #f5f7fa;   // cards légères
 $color-bg-white: #ffffff;
 
-$color-error-bg: #f8d7da;
+// ─── Colors — Error ───────────────────────────────────────────────────────────
+
+$color-error-bg:     #f8d7da;
 $color-error-border: #f5c6cb;
-$color-error-text: #721c24;
-
-// ─── Spacing ──────────────────────────────────────────────────────────────────
-
-$spacing-xs: 0.25rem;
-$spacing-sm: 0.5rem;
-$spacing-md: 1rem;
-$spacing-lg: 1.5rem;
-$spacing-xl: 2rem;
+$color-error-text:   #721c24;
 
 // ─── Spacing ──────────────────────────────────────────────────────────────────
 
@@ -41,23 +57,21 @@ $spacing-xl: 2rem;
 
 $border-radius-sm: 4px;
 $border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-pill: 20px;
 
 // ─── Shadows ──────────────────────────────────────────────────────────────────
 
-$shadow-card: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-card:   0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-card-md: 0 2px 12px rgba(26, 35, 126, 0.06);
+$shadow-header: 0 2px 8px rgba(26, 35, 126, 0.35);
 
-$container-sm: 720px;
-$container-md: 800px;
-$container-lg: 860px;
-$container-xl: 1100px;
-$container-full: 1400px; // building-list, wide list pages
+// ─── Layout / Containers ──────────────────────────────────────────────────────
 
-// ─── Layout ───────────────────────────────────────────────────────────────────
-
-$container-sm: 720px;
-$container-md: 800px;
-$container-lg: 860px;
-$container-xl: 1100px;
+$container-sm:   720px;
+$container-md:   800px;
+$container-lg:   860px;
+$container-xl:   1100px;
 $container-full: 1400px; // building-list, wide list pages
 
 // ─── Typography ───────────────────────────────────────────────────────────────
@@ -65,17 +79,18 @@ $container-full: 1400px; // building-list, wide list pages
 $font-family:
   -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
   Arial, sans-serif;
-$font-size-base: 1rem; // 16px
-$font-size-sm: 0.875rem; // 14px
-$font-size-xs: 0.8rem; // ~13px
-$font-size-xxs: 0.75rem; // 12px
-$font-size-lg: 1.1rem;
-$font-size-xl: 1.3rem;
-$font-size-2xl: 1.5rem;
 
-$font-weight-normal: 400;
-$font-weight-medium: 500;
+$font-size-base: 1rem;      // 16px
+$font-size-sm:   0.875rem;  // 14px
+$font-size-xs:   0.8rem;    // ~13px
+$font-size-xxs:  0.75rem;   // 12px
+$font-size-lg:   1.1rem;
+$font-size-xl:   1.3rem;
+$font-size-2xl:  1.5rem;
+
+$font-weight-normal:   400;
+$font-weight-medium:   500;
 $font-weight-semibold: 600;
-$font-weight-bold: 700;
+$font-weight-bold:     700;
 
 $line-height-base: 1.5;

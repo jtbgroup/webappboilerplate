@@ -1,0 +1,42 @@
+@use 'variables' as *;
+
+// ── Table card ────────────────────────────────────────────────────────────────
+
+.table-card {
+  background: $color-bg-white;
+  border-radius: $border-radius-lg;
+  border: 1px solid rgba(57, 73, 171, 0.12);
+  box-shadow: $shadow-card-md;
+  overflow: hidden;
+}
+
+.user-table {
+  width: 60%;
+
+  .mat-mdc-header-row {
+    background: $color-brand-bg;
+  }
+
+  .mat-mdc-header-cell {
+    color: $color-brand-deep;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xxs;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(57, 73, 171, 0.15);
+  }
+
+  .mat-mdc-row {
+    transition: background 0.12s ease;
+
+    &:hover {
+      background: $color-brand-hover;
+    }
+  }
+
+  .mat-mdc-cell {
+    border-bottom-color: rgba(57, 73, 171, 0.07);
+    color: $color-text;
+    font-size: $font-size-sm;
+  }
+}

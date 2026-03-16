@@ -1,4 +1,6 @@
-// ── Page header ──────────────────────────────────────────────────────────────
+@use 'styles/variables' as *;
+
+// ── Page header ───────────────────────────────────────────────────────────────
 
 .page-header {
   display: flex;
@@ -9,27 +11,27 @@
 
 .page-title {
   margin: 0;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #1a237e;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-brand-deep;
 }
 
 // ── Form card ─────────────────────────────────────────────────────────────────
 
 .form-card {
-  background: white;
-  border-radius: 12px;
+  background: $color-bg-white;
+  border-radius: $border-radius-lg;
   border: 1px solid rgba(57, 73, 171, 0.15);
-  box-shadow: 0 2px 12px rgba(26, 35, 126, 0.06);
+  box-shadow: $shadow-card-md;
   padding: 24px 28px;
   margin-bottom: 24px;
 }
 
 .form-title {
   margin: 0 0 20px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1a237e;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-brand-deep;
 }
 
 .user-form {
@@ -50,64 +52,11 @@
   margin-top: 8px;
 }
 
-.btn-save {
-  --mdc-filled-button-container-color: #3949ab;
-  --mdc-filled-button-label-text-color: white;
-  border-radius: 8px;
-  font-weight: 600;
-
-  &:hover {
-    --mdc-filled-button-container-color: #283593;
-  }
-}
 
 .form-error {
-  color: #c62828;
-  font-size: 0.875rem;
+  color: $color-danger-text;
+  font-size: $font-size-sm;
   margin-top: 4px;
-}
-
-// ── Table card ────────────────────────────────────────────────────────────────
-
-.table-card {
-  background: white;
-  border-radius: 12px;
-  border: 1px solid rgba(57, 73, 171, 0.12);
-  box-shadow: 0 2px 12px rgba(26, 35, 126, 0.06);
-  overflow: hidden;
-}
-
-.user-table {
-  width: 100%;
-
-  // Header row
-  .mat-mdc-header-row {
-    background: #e8eaf6;
-  }
-
-  .mat-mdc-header-cell {
-    color: #1a237e;
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    border-bottom: 2px solid rgba(57, 73, 171, 0.15);
-  }
-
-  // Data rows
-  .mat-mdc-row {
-    transition: background 0.12s ease;
-
-    &:hover {
-      background: #f5f6ff;
-    }
-  }
-
-  .mat-mdc-cell {
-    border-bottom-color: rgba(57, 73, 171, 0.07);
-    color: #1a1a2e;
-    font-size: 0.875rem;
-  }
 }
 
 // ── Role chips ────────────────────────────────────────────────────────────────
@@ -121,12 +70,12 @@
 .role-chip {
   display: inline-block;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background: #e8eaf6;
-  color: #1a237e;
-  border-radius: 4px;
+  background: $color-brand-bg;
+  color: $color-brand-deep;
+  border-radius: $border-radius-sm;
   padding: 2px 8px;
 }
 
@@ -135,20 +84,20 @@
 .status-badge {
   display: inline-block;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  border-radius: 20px;
+  border-radius: $border-radius-pill;
   padding: 3px 10px;
 
   &.enabled {
-    background: #e8f5e9;
-    color: #2e7d32;
+    background: $color-success-bg;
+    color: $color-success-text;
   }
 
   &.disabled {
-    background: #fce4ec;
-    color: #b71c1c;
+    background: $color-warning-bg;
+    color: $color-warning-text;
   }
 }
 

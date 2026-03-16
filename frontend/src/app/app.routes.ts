@@ -13,7 +13,7 @@ export const routes: Routes = [
     path: '',
     canActivate: [authGuard],
     loadComponent: () =>
-      import('./core/shared/components/shell/app-shell.component').then(m => m.AppShellComponent),
+      import('./shared/components/shell/app-shell.component').then(m => m.AppShellComponent),
     children: [
       {
         path: '',

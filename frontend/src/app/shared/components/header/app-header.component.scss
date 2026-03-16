@@ -1,3 +1,5 @@
+@use 'styles/variables' as *;
+
 :host {
   display: block;
 }
@@ -9,8 +11,8 @@
   align-items: center;
   height: 60px;
   padding: 0 24px;
-  background: linear-gradient(135deg, #1a237e 0%, #283593 60%, #3949ab 100%);
-  box-shadow: 0 2px 8px rgba(26, 35, 126, 0.35);
+  background: linear-gradient(135deg, #{$color-brand-deep} 0%, #{$color-brand-mid} 60%, #{$color-brand-light} 100%);
+  box-shadow: $shadow-header;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -26,7 +28,7 @@
 
 .app-title {
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   letter-spacing: 0.03em;
   color: white;
   white-space: nowrap;
@@ -35,7 +37,7 @@
 }
 
 .title-accent {
-  color: #90caf9;
+  color: $color-brand-accent;
 }
 
 // ── Separators ────────────────────────────────────────────────────────────────
@@ -56,7 +58,7 @@
   flex-shrink: 0;
 }
 
-// ── Nav buttons (natifs, zéro interférence MDC) ───────────────────────────────
+// ── Nav buttons ───────────────────────────────────────────────────────────────
 
 .nav-btn {
   display: inline-flex;
@@ -65,12 +67,12 @@
   height: 36px;
   padding: 0 12px;
   border: none;
-  border-radius: 6px;
+  border-radius: $border-radius-md;
   background: transparent;
   color: rgba(255, 255, 255, 0.9);
   font-family: Roboto, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
   letter-spacing: 0.02em;
   cursor: pointer;
   transition: background 0.15s ease;
@@ -83,17 +85,11 @@
     color: rgba(255, 255, 255, 0.8);
   }
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.12);
-  }
-
-  &:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.1);
-  }
+  &:hover  { background: rgba(255, 255, 255, 0.12); }
+  &:focus  { outline: none; background: rgba(255, 255, 255, 0.1); }
 }
 
-// ── User pill (natif) ─────────────────────────────────────────────────────────
+// ── User pill ─────────────────────────────────────────────────────────────────
 
 .user-pill {
   display: inline-flex;
@@ -102,12 +98,12 @@
   height: 36px;
   padding: 0 12px 0 8px;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 20px;
+  border-radius: $border-radius-pill;
   background: rgba(255, 255, 255, 0.1);
   color: white;
   font-family: Roboto, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
   cursor: pointer;
   transition: background 0.15s ease;
   max-width: 220px;
@@ -128,13 +124,8 @@
     white-space: nowrap;
   }
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.18);
-  }
-
-  &:focus {
-    outline: none;
-  }
+  &:hover { background: rgba(255, 255, 255, 0.18); }
+  &:focus { outline: none; }
 }
 
 // ── User dropdown ─────────────────────────────────────────────────────────────
@@ -151,27 +142,27 @@
 .user-role-badge {
   display: inline-block;
   font-size: 10px;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #1a237e;
-  background: #e8eaf6;
-  border-radius: 4px;
+  color: $color-brand-deep;
+  background: $color-brand-bg;
+  border-radius: $border-radius-sm;
   padding: 2px 6px;
   width: fit-content;
   margin-bottom: 2px;
 }
 
 .username-label {
-  font-weight: 600;
+  font-weight: $font-weight-semibold;
   font-size: 0.95rem;
   color: rgba(0, 0, 0, 0.85);
 }
 
 .logout-item {
-  color: #c62828 !important;
+  color: $color-danger-text !important;
 
   mat-icon {
-    color: #c62828 !important;
+    color: $color-danger-text !important;
   }
 }
