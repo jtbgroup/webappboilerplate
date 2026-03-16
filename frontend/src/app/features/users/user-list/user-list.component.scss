@@ -14,25 +14,6 @@
   color: #1a237e;
 }
 
-.btn-create {
-  --mdc-filled-button-container-color: #3949ab;
-  --mdc-filled-button-label-text-color: white;
-  --mat-filled-button-ripple-color: rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  font-weight: 600;
-
-  mat-icon {
-    font-size: 18px;
-    width: 18px;
-    height: 18px;
-    color: white;
-  }
-
-  &:hover {
-    --mdc-filled-button-container-color: #283593;
-  }
-}
-
 // ── Form card ─────────────────────────────────────────────────────────────────
 
 .form-card {

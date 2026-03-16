@@ -1,6 +1,11 @@
 @use '@angular/material' as mat;
 
 @include mat.core();
+// ─── Variables ────────────────────────────────────────────────────────────────
+@use "./styles/variables" as *;
+
+// ─── Shared partials ──────────────────────────────────────────────────────────
+@use "./styles/buttons";
 
 $theme: mat.define-theme((
   color: (
