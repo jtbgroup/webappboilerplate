@@ -2,8 +2,8 @@
 @use '@angular/material' as mat;
 @use "./styles/variables" as *;
 @use './styles/buttons';
-@use './styles/tables';      
-@use './styles/material';    
+@use './styles/tables';
+@use './styles/material';
 
 // ─── Angular Material setup ───────────────────────────────────────────────────
 @include mat.core();
@@ -11,7 +11,7 @@
 $theme: mat.define-theme((
   color: (
     theme-type: light,
-    primary: mat.$violet-palette,
+    primary: mat.$azure-palette,
   )
 ));
 

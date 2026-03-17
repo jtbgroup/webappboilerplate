@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use "variables" as *;
 
 // ─── Bouton principal (création / action primaire) ────────────────────────────
 // Material MDC écrase background-color normal → on passe par les tokens MDC.
@@ -36,13 +36,45 @@
   }
 }
 
-
 .btn-login.mat-mdc-button-base {
-   --mdc-filled-button-container-color: #{$btn-primary-bg};
-  --mdc-filled-button-label-text-color: #ffffff;
+  --mdc-filled-button-container-color: #{$btn-primary-bg};
+  --mdc-filled-button-label-text-color: #{$btn-primary-text-color};
   --mat-filled-button-ripple-color: rgba(255, 255, 255, 0.12);
   margin-top: 8px;
   height: 48px;
   font-size: $font-size-base;
   letter-spacing: 0.5px;
+}
+
+.mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: #04665f;
+  }
+
+
+// ─── mat-icon-button : couleur primaire par défaut ───────────────────────────
+// Le thème MDC (mat.$violet-palette) donne une teinte violette aux icon-buttons
+// sans color explicite. On aligne sur $color-primary partout.
+ 
+.mat-mdc-icon-button {
+  --mat-icon-button-state-layer-color: #{$color-primary};
+ 
+  mat-icon {
+    color: $color-primary;
+  }
+ 
+  &:hover mat-icon {
+    color: $color-primary-dark;
+  }
+ 
+  // warn (ex: bouton disable) → rouge danger
+  &[color='warn'] {
+    --mat-icon-button-state-layer-color: #{$color-danger};
+ 
+    mat-icon { color: $color-danger-text; }
+  }
+ 
+  // état désactivé → gris standard
+  &:disabled mat-icon {
+    color: rgba(0, 0, 0, 0.26);
+  }
 }

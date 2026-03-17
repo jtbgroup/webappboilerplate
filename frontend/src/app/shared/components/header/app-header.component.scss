@@ -1,79 +1,58 @@
 @use 'styles/variables' as *;
 
-:host {
-  display: block;
-}
-
 // ── Toolbar ───────────────────────────────────────────────────────────────────
 
 .app-toolbar {
   display: flex;
   align-items: center;
-  height: 60px;
-  padding: 0 24px;
-  background: linear-gradient(135deg, #{$color-brand-deep} 0%, #{$color-brand-mid} 60%, #{$color-brand-light} 100%);
-  box-shadow: $shadow-header;
+  gap: 8px;
+  padding: 0 16px;
+  height: 56px;
+  background: linear-gradient(135deg, $color-brand-deep 0%, $color-brand-light 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-sizing: border-box;
-  width: 100%;
 }
-
-.spacer {
-  flex: 1 1 auto;
-}
-
-// ── Title ─────────────────────────────────────────────────────────────────────
 
 .app-title {
   font-size: 1.15rem;
   font-weight: $font-weight-bold;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
   color: white;
-  white-space: nowrap;
-  font-family: Roboto, sans-serif;
-  flex-shrink: 0;
+  user-select: none;
+
+  .title-accent {
+    color: $color-brand-accent;
+  }
 }
 
-.title-accent {
-  color: $color-brand-accent;
+.spacer {
+  flex: 1;
 }
 
-// ── Separators ────────────────────────────────────────────────────────────────
-
-.nav-divider-left {
-  width: 1px;
-  height: 22px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 0 16px 0 20px;
-  flex-shrink: 0;
-}
-
+.nav-divider-left,
 .nav-divider {
   width: 1px;
-  height: 24px;
+  height: 28px;
   background: rgba(255, 255, 255, 0.2);
-  margin: 0 12px;
-  flex-shrink: 0;
+  margin: 0 4px;
 }
 
 // ── Nav buttons ───────────────────────────────────────────────────────────────
 
 .nav-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 2px;
-  height: 36px;
-  padding: 0 12px;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.1);
   border: none;
   border-radius: $border-radius-md;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.9);
-  font-family: Roboto, sans-serif;
+  color: white;
   font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-  letter-spacing: 0.02em;
+  font-weight: $font-weight-semibold;
+  padding: 6px 12px;
   cursor: pointer;
   transition: background 0.15s ease;
 
@@ -82,28 +61,25 @@
     width: 18px;
     height: 18px;
     line-height: 18px;
-    color: rgba(255, 255, 255, 0.8);
   }
 
-  &:hover  { background: rgba(255, 255, 255, 0.12); }
-  &:focus  { outline: none; background: rgba(255, 255, 255, 0.1); }
+  &:hover { background: rgba(255, 255, 255, 0.22); }
+  &:focus { outline: none; }
 }
 
 // ── User pill ─────────────────────────────────────────────────────────────────
 
 .user-pill {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 6px;
-  height: 36px;
-  padding: 0 12px 0 8px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: $border-radius-pill;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: 24px;
   color: white;
-  font-family: Roboto, sans-serif;
   font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
+  font-weight: $font-weight-semibold;
+  padding: 6px 12px 6px 8px;
   cursor: pointer;
   transition: background 0.15s ease;
   max-width: 220px;
@@ -165,4 +141,35 @@
   mat-icon {
     color: $color-danger-text !important;
   }
+}
+
+// ── Language menu ─────────────────────────────────────────────────────────────
+
+.lang-current {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.08em;
+  color: $color-brand-light;
+  background: $color-brand-bg;
+  border-radius: $border-radius-sm;
+  padding: 2px 6px;
+}
+
+.lang-flag {
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.lang-check {
+  margin-left: auto;
+  font-size: 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+  color: $color-brand-light !important;
+}
+
+.lang-active {
+  background: $color-brand-bg;
+  font-weight: $font-weight-semibold;
 }

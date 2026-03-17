@@ -9,6 +9,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { UserService, UserManagementDto } from '../../../core/services/user.service';
+import { I18nService } from '../../../core/i18n/i18n.service';
+import { TranslatePipe } from '../../../core/i18n/translate.pipe';
 
 const ALL_ROLES = ['ADMIN', 'PROJECT_MANAGER'];
 
@@ -27,11 +29,13 @@ const ALL_ROLES = ['ADMIN', 'PROJECT_MANAGER'];
     MatButtonModule,
     MatIconModule,
     MatSlideToggleModule,
+    TranslatePipe,
   ],
 })
 export class UserListComponent implements OnInit {
   private readonly userService = inject(UserService);
   private readonly fb = inject(FormBuilder);
+  readonly i18n = inject(I18nService);
 
   readonly availableRoles = ALL_ROLES;
 
@@ -93,7 +97,7 @@ export class UserListComponent implements OnInit {
         enabled: enabled ?? false,
       }).subscribe({
         next: () => { this.reload(); this.cancel(); },
-        error: () => { this.error = 'Unable to update user'; }
+        error: () => { this.error = this.i18n.translate('userList.errorUpdate'); }
       });
       return;
     }
@@ -105,21 +109,21 @@ export class UserListComponent implements OnInit {
       enabled: enabled ?? true,
     }).subscribe({
       next: () => { this.reload(); this.cancel(); },
-      error: () => { this.error = 'Unable to create user'; }
+      error: () => { this.error = this.i18n.translate('userList.errorCreate'); }
     });
   }
 
   disable(user: UserManagementDto) {
     this.userService.disableUser(user.id).subscribe({
       next: () => this.reload(),
-      error: () => (this.error = 'Unable to disable user'),
+      error: () => (this.error = this.i18n.translate('userList.errorDisable')),
     });
   }
 
   private reload() {
     this.userService.listUsers().subscribe({
       next: users => (this.users = users),
-      error: () => (this.error = 'Unable to load users'),
+      error: () => (this.error = this.i18n.translate('userList.errorLoad')),
     });
   }
 }

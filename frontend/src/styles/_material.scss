@@ -59,3 +59,36 @@
   --mat-option-selected-state-label-text-color:      #{$form-focus-color};
   --mat-option-selected-state-layer-color:           #{$color-brand-bg};
 }
+
+// ─── mat-icon-button ─────────────────────────────────────────────────────────
+
+.mat-mdc-icon-button {
+  --mdc-icon-button-icon-color: #{$color-primary};
+
+  &[color='warn'] {
+    --mdc-icon-button-icon-color: #{$color-danger-text};
+  }
+}
+
+// ─── mat-stroked-button (outlined) ───────────────────────────────────────────
+// .mat-mdc-outlined-button:not(:disabled) utilise :
+// color: var(--mdc-outlined-button-label-text-color, var(--mat-sys-primary))
+// --mat-sys-primary est le violet MDC → on override le token.
+
+.mat-mdc-outlined-button {
+  --mdc-outlined-button-label-text-color: #{$color-primary};
+  --mdc-outlined-button-outline-color: #{$color-primary};
+
+  &[color='warn'] {
+    --mdc-outlined-button-label-text-color: #{$color-danger-text};
+    --mdc-outlined-button-outline-color: #{$color-danger-text};
+  }
+}
+
+// ─── --mat-sys-primary global ────────────────────────────────────────────────
+// Tous les composants MDC qui fallback sur --mat-sys-primary héritent du violet.
+// On redéfinit ce token système à la racine pour aligner toute l'app.
+
+html {
+  --mat-sys-primary: #{$color-primary};
+}
