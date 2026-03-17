@@ -35,3 +35,14 @@
     --mdc-filled-button-container-color: #{$btn-save-bg-hover};
   }
 }
+
+
+.btn-login.mat-mdc-button-base {
+   --mdc-filled-button-container-color: #{$btn-primary-bg};
+  --mdc-filled-button-label-text-color: #ffffff;
+  --mat-filled-button-ripple-color: rgba(255, 255, 255, 0.12);
+  margin-top: 8px;
+  height: 48px;
+  font-size: $font-size-base;
+  letter-spacing: 0.5px;
+}
