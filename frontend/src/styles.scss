@@ -1,7 +1,9 @@
 // ─── Imports (tous les @use doivent être en premier) ─────────────────────────
 @use '@angular/material' as mat;
 @use "./styles/variables" as *;
-@use "./styles/buttons";
+@use './styles/buttons';
+@use './styles/tables';      
+@use './styles/material';    
 
 // ─── Angular Material setup ───────────────────────────────────────────────────
 @include mat.core();
