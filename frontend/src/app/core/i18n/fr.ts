@@ -43,8 +43,6 @@ export const fr: TranslationKeys = {
   userList: {
     title: 'Utilisateurs',
     newUser: 'Nouvel utilisateur',
-    editUser: 'Modifier l\'utilisateur',
-    createUser: 'Créer un utilisateur',
     username: "Nom d'utilisateur",
     password: 'Mot de passe',
     roles: 'Rôles',
@@ -57,10 +55,17 @@ export const fr: TranslationKeys = {
     create: 'Créer',
     disable: 'Désactiver',
     edit: 'Modifier',
+    noUsers: 'Aucun utilisateur trouvé.',
     errorLoad: 'Impossible de charger les utilisateurs',
     errorCreate: "Impossible de créer l'utilisateur",
     errorUpdate: "Impossible de mettre à jour l'utilisateur",
     errorDisable: "Impossible de désactiver l'utilisateur",
+  },
+
+  // ── User Form ───────────────────────────────────────────────────────────────
+  userForm: {
+    createUser: 'Créer un utilisateur',
+    editUser: "Modifier l'utilisateur",
   },
 
   // ── Languages ───────────────────────────────────────────────────────────────

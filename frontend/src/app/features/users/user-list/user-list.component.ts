@@ -1,18 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { UserService, UserManagementDto } from '../../../core/services/user.service';
 import { I18nService } from '../../../core/i18n/i18n.service';
 import { TranslatePipe } from '../../../core/i18n/translate.pipe';
-
-const ALL_ROLES = ['ADMIN', 'PROJECT_MANAGER'];
 
 @Component({
   selector: 'app-user-list',
@@ -21,96 +15,31 @@ const ALL_ROLES = ['ADMIN', 'PROJECT_MANAGER'];
   styleUrl: './user-list.component.scss',
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
     MatButtonModule,
     MatIconModule,
-    MatSlideToggleModule,
     TranslatePipe,
   ],
 })
 export class UserListComponent implements OnInit {
   private readonly userService = inject(UserService);
-  private readonly fb = inject(FormBuilder);
+  private readonly router = inject(Router);
   readonly i18n = inject(I18nService);
-
-  readonly availableRoles = ALL_ROLES;
 
   users: UserManagementDto[] = [];
   displayedColumns = ['username', 'roles', 'enabled', 'actions'];
-
-  userForm = this.fb.group({
-    username: ['', Validators.required],
-    password: ['', Validators.required],
-    roles: this.fb.control<string[]>([], Validators.required),
-    enabled: [true],
-  });
-
-  editingUser: UserManagementDto | null = null;
-  formVisible = false;
   error: string | null = null;
 
   ngOnInit() {
     this.reload();
   }
 
-  startCreate() {
-    this.editingUser = null;
-    this.error = null;
-    this.formVisible = true;
-    this.userForm.reset({ roles: [], enabled: true });
-    this.userForm.get('password')?.setValidators([Validators.required]);
-    this.userForm.get('password')?.updateValueAndValidity();
+  goToCreate() {
+    this.router.navigate(['/admin/users/new']);
   }
 
-  edit(user: UserManagementDto) {
-    this.editingUser = user;
-    this.error = null;
-    this.formVisible = true;
-    this.userForm.reset({
-      username: user.username,
-      password: '',
-      roles: [...user.roles],
-      enabled: user.enabled,
-    });
-    this.userForm.get('password')?.clearValidators();
-    this.userForm.get('password')?.updateValueAndValidity();
-  }
-
-  cancel() {
-    this.formVisible = false;
-    this.editingUser = null;
-    this.error = null;
-  }
-
-  onSubmit() {
-    if (this.userForm.invalid) return;
-
-    const { username, password, roles, enabled } = this.userForm.value;
-
-    if (this.editingUser) {
-      this.userService.updateUser(this.editingUser.id, {
-        roles: roles ?? [],
-        enabled: enabled ?? false,
-      }).subscribe({
-        next: () => { this.reload(); this.cancel(); },
-        error: () => { this.error = this.i18n.translate('userList.errorUpdate'); }
-      });
-      return;
-    }
-
-    this.userService.createUser({
-      username: username ?? '',
-      password: password ?? '',
-      roles: roles ?? [],
-      enabled: enabled ?? true,
-    }).subscribe({
-      next: () => { this.reload(); this.cancel(); },
-      error: () => { this.error = this.i18n.translate('userList.errorCreate'); }
-    });
+  goToEdit(user: UserManagementDto) {
+    this.router.navigate(['/admin/users', user.id, 'edit']);
   }
 
   disable(user: UserManagementDto) {

@@ -41,8 +41,6 @@ export const en = {
   userList: {
     title: 'Users',
     newUser: 'New user',
-    editUser: 'Edit user',
-    createUser: 'Create user',
     username: 'Username',
     password: 'Password',
     roles: 'Roles',
@@ -55,10 +53,17 @@ export const en = {
     create: 'Create',
     disable: 'Disable',
     edit: 'Edit',
+    noUsers: 'No users found.',
     errorLoad: 'Unable to load users',
     errorCreate: 'Unable to create user',
     errorUpdate: 'Unable to update user',
     errorDisable: 'Unable to disable user',
+  },
+
+  // ── User Form ───────────────────────────────────────────────────────────────
+  userForm: {
+    createUser: 'Create user',
+    editUser: 'Edit user',
   },
 
   // ── Languages ───────────────────────────────────────────────────────────────
